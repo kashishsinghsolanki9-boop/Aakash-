@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3b071b">
+<title>A Little Universe for Aakash 💗</title>
+<style>
+  :root { --pink:#ff8fb8; --hot:#ff477e; --cream:#fff1f5; --wine:#3b071b; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; color:var(--cream);
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(circle at 18% 18%, #8e1b4d 0, transparent 28%),
+      radial-gradient(circle at 82% 28%, #641238 0, transparent 30%),
+      linear-gradient(145deg,#210411,#4b0927 55%,#210411);
+    overflow-x:hidden;
+  }
+  .stars, .hearts { position:fixed; inset:0; pointer-events:none; overflow:hidden; }
+  .star { position:absolute; color:#ffdce8; opacity:.75; animation:twinkle 2.5s infinite alternate; }
+  .heart { position:absolute; bottom:-40px; color:#ff7ba9; opacity:.55; animation:floatUp linear infinite; }
+  @keyframes twinkle { from{opacity:.25;transform:scale(.8)} to{opacity:1;transform:scale(1.15)} }
+  @keyframes floatUp { to { transform:translateY(-115vh) rotate(25deg); opacity:0; } }
+  main { position:relative; z-index:1; width:min(680px,92vw); margin:0 auto; padding:54px 0 42px; text-align:center; }
+  .eyebrow { letter-spacing:.22em; text-transform:uppercase; font:12px Arial,sans-serif; color:#ffc4d8; }
+  h1 { font-size:clamp(2.5rem,9vw,5rem); line-height:1.02; margin:18px 0; font-weight:normal; }
+  h1 span { color:var(--pink); font-style:italic; }
+  .intro { font:16px/1.8 Arial,sans-serif; color:#ffe3ec; max-width:500px; margin:0 auto; }
+  .orb { width:150px;height:150px;margin:30px auto 25px;border-radius:50%;display:grid;place-items:center;
+    background:radial-gradient(circle at 35% 30%,#ffd7e5,#ff6e9e 25%,#b31c54 55%,#480821 75%);
+    box-shadow:0 0 35px #ff477e88,0 0 85px #ff477e33; font-size:55px; animation:pulse 3s infinite; }
+  @keyframes pulse { 50% { transform:scale(1.05); box-shadow:0 0 50px #ff477eaa,0 0 100px #ff477e55; } }
+  button { cursor:pointer; border:1px solid #ffb7ce; border-radius:999px; padding:14px 23px; color:#4b0927;
+    background:linear-gradient(120deg,#ffe6ee,#ff8fb8); font-weight:bold; font-size:15px; box-shadow:0 8px 25px #17020d55; }
+  button:focus-visible { outline:3px solid white; outline-offset:4px; }
+  .letter { display:none; text-align:left; margin:28px auto 0; padding:25px clamp(18px,5vw,34px); border:1px solid #ffb7ce66;
+    border-radius:22px; background:#fff1f50d; box-shadow:inset 0 0 35px #ff477e0b; }
+  .letter.show { display:block; animation:appear .7s ease both; }
+  @keyframes appear { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+  .letter h2 { text-align:center; font-size:2rem; font-weight:normal; color:#ffb6cf; margin-top:0; }
+  .letter p { font-size:16px; line-height:1.9; color:#fff0f5; }
+  .signature { text-align:right; font-style:italic; color:#ffb6cf!important; }
+  .footer { margin-top:30px; font:12px Arial,sans-serif; color:#e9a9bf; letter-spacing:.08em; }
+  .tiny { margin-top:12px; color:#ffc8da; font-size:13px; }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; } }
+</style>
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<main>
+  <div class="eyebrow">a tiny universe · made just for you</div>
+  <h1>For <span>Aakash</span><br>with all my heart 💗</h1>
+  <p class="intro">Out of all the little moments in this huge universe, I’m really glad our paths crossed. Today, this tiny corner of the internet is all yours.</p>
+  <div class="orb" aria-hidden="true">♡</div>
+  <button id="openBtn" type="button" aria-expanded="false" aria-controls="letter">Open your little surprise ✨</button>
+  <section class="letter" id="letter" aria-live="polite">
+    <h2>One little letter for you 💌</h2>
+    <!-- You can edit the message below before publishing. -->
+    <p>Happy birthday, Aakashhh! ❤️</p>
+    <p>I hope this new year of your life brings you peace, happiness, good health, and all the things you’ve been quietly working towards. I hope you keep finding reasons to be proud of yourself, even on the days when things feel difficult.</p>
+    <p>I’m glad I got the chance to know you. Even with all these kilometres between us, little conversations can become such a sweet part of a day. So here’s a tiny reminder from me: you matter, your dreams matter, and I’m wishing so many good things for you.</p>
+    <p>I couldn’t put the whole universe in a link… so I made you this little corner of it instead. 🌙💗</p>
+    <p class="signature">Happy birthday, you. — from your favourite person (hopefully 😉) 💋</p>
+  </section>
+  <div class="tiny">Made with pink skies, tiny stars & lots of good wishes ✨</div>
+  <div class="footer">ONE SMALL LINK · A WHOLE LOT OF HEART</div>
+</main>
+<script>
+  const stars = document.getElementById('stars');
+  for (let i=0;i<55;i++) {
+    const s=document.createElement('span'); s.className='star'; s.textContent = Math.random()>.5?'✦':'·';
+    s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+    s.style.fontSize=(8+Math.random()*13)+'px'; s.style.animationDelay=(Math.random()*3)+'s'; stars.appendChild(s);
+  }
+  const hearts = document.getElementById('hearts');
+  for (let i=0;i<13;i++) {
+    const h=document.createElement('span'); h.className='heart'; h.textContent=['♥','♡','❤'][i%3];
+    h.style.left=Math.random()*100+'%'; h.style.fontSize=(12+Math.random()*18)+'px';
+    h.style.animationDuration=(9+Math.random()*9)+'s'; h.style.animationDelay=(-Math.random()*14)+'s'; hearts.appendChild(h);
+  }
+  const btn=document.getElementById('openBtn'), letter=document.getElementById('letter');
+  btn.addEventListener('click',()=>{
+    const open=letter.classList.toggle('show');
+    btn.setAttribute('aria-expanded',String(open));
+    btn.textContent=open?'Your little letter is open 💗':'Open your little surprise ✨';
+    if(open) letter.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+</script>
+</body>
+</html>
